@@ -1,0 +1,27 @@
+#dosya.txt içindeki isim,takım şeklinde yazılmış futbolcuları masaüstüne takımları adına txt belgesi oluştururarak ayırır.
+
+def DosyaAc():
+    with open("C:/Users/oguza/OneDrive/Masaüstü/dosya.txt","r",encoding = "utf-8") as file:
+        for a in file:
+            a = a[:-1]
+            oyuncu , takım  = a.split(",")
+            if takım in Liste:
+                Liste[takım].append(oyuncu)
+            else:
+                Liste[takım] = [oyuncu]
+
+
+
+
+def DosyaOlustur():
+    for a in Liste:
+        print(a)
+        konum = "C:/Users/oguza/OneDrive/Masaüstü/" + a + ".txt"
+        with open(str(konum), "w", encoding="utf-8") as file:
+            for b in Liste[a]:
+                file.write(b + "\n")
+
+
+Liste = {}
+DosyaAc()
+DosyaOlustur()
